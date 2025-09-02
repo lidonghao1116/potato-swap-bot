@@ -475,8 +475,8 @@ async function addLiquidityETH(
     // 创建路由器合约实例
     const router = new ethers.Contract(routerAddress, ROUTER_ABI, wallet);
     
-    // 使用极保守的滑点策略 - 至少50%的缓冲
-    const conservativeSlippage = Math.max(config.slippageTolerance, 50); // 至少50%滑点保护
+    // 使用极保守的滑点策略 - 至少5%的缓冲
+    const conservativeSlippage = Math.max(config.slippageTolerance, 5); // 至少5%滑点保护
     const slippageMultiplier = BigInt(100 - conservativeSlippage);
     const usdtAmountMin = (usdtAmount * slippageMultiplier) / BigInt(100);
     const okbAmountMin = (okbAmount * slippageMultiplier) / BigInt(100);
